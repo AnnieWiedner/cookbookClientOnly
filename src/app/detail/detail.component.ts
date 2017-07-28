@@ -31,13 +31,13 @@ export class DetailComponent implements OnInit {
   }
 
   getRecipe(id){
-    this.http.get('http://localhost:9393/recipes/' + id).subscribe(response =>
+    this.http.get('https://cookbooks-server.herokuapp.com/recipes/' + id).subscribe(response =>
       this.recipe = response.json()
     )
   }
 
   deleteRecipe(recipe) {
-    this.http.delete('http://localhost:9393/recipes/' + recipe.id).subscribe(response => {
+    this.http.delete('https://cookbooks-server.herokuapp.com/recipes/' + recipe.id).subscribe(response => {
       this.router.navigate(['/list'])
     })
   }

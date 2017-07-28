@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
-    this.http.post('http://localhost:9393/users/register', this.newUser).subscribe(response => {
+    this.http.post('https://cookbooks-server.herokuapp.com/users/register', this.newUser).subscribe(response => {
       this.users = response.json();
       this.router.navigate(['/list']);
     })

@@ -25,7 +25,7 @@ export class ListComponent {
   }
 
   getRecipes() {
-    this.http.get('http://localhost:9393/recipes?token=' + window.localStorage.token).subscribe(response => {
+    this.http.get('https://cookbooks-server.herokuapp.com/recipes?token=' + window.localStorage.token).subscribe(response => {
       this.recipes = response.json()
     }, err => {
       if(err.status === 403) {
@@ -37,7 +37,7 @@ export class ListComponent {
   }
 
   postRecipe() {
-    this.http.post('http://localhost:9393/recipes?token=' + window.localStorage.token, this.newRecipe).subscribe(response => {
+    this.http.post('https://cookbooks-server.herokuapp.com/recipes?token=' + window.localStorage.token, this.newRecipe).subscribe(response => {
       this.recipes = response.json()
     }, err => {
       if (err.status === 403){
@@ -49,7 +49,7 @@ export class ListComponent {
   }
 
   patchRecipe() {
-    this.http.patch('http://localhost:9393/recipes/' + this.updateRecipe.id, this.updateRecipe).subscribe(response =>
+    this.http.patch('https://cookbooks-server.herokuapp.com/recipes/' + this.updateRecipe.id, this.updateRecipe).subscribe(response =>
       this.recipes = response.json()
     )
   }
